@@ -115,103 +115,109 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
 
           </div>
 
-          {/* Right Column - Interactive Profile Card with Stats Grid */}
-          <div className="lg:col-span-5 w-full">
-            <div className="relative bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-4 sm:p-8 shadow-xl backdrop-blur-md overflow-hidden group hover:border-[#4F46E5]/40 transition-all duration-300 w-full">
+          {/* Right Column - Large Prominent Featured Photo with Floating Badges */}
+          <div className="lg:col-span-5 w-full flex justify-center">
+            <div className="relative w-full max-w-md lg:max-w-none">
               
-              {/* Top ambient glow */}
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-gradient-to-br from-[#7C3AED]/15 to-[#A855F7]/15 rounded-full blur-2xl pointer-events-none group-hover:opacity-100 transition-all" />
+              {/* Decorative Ambient Aura Behind Photo */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-[#4F46E5]/25 via-[#7C3AED]/20 to-[#A855F7]/25 rounded-[2.5rem] blur-2xl opacity-75 -z-10 animate-pulse" />
+              
+              {/* Outer Glass Frame */}
+              <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-3 sm:p-4 border border-white shadow-2xl shadow-indigo-900/10 group transition-all duration-500 hover:shadow-indigo-500/20">
+                
+                {/* Main Large Photo Container */}
+                <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-slate-900 shadow-inner">
+                  <img
+                    src={personalInfo.profileImage || "/huss.png"}
+                    alt={personalInfo.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                  
+                  {/* Subtle Gradient Overlay at the bottom for contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
 
-              {/* Monogram Badge & Name Header */}
-              <div className="flex items-center gap-4 mb-4 sm:mb-5 pb-4 sm:pb-5 border-b border-slate-100 relative z-10">
-                <div>
-                  <div className="text-[#0F172A] font-bold text-base sm:text-xl tracking-tight">{personalInfo.name}</div>
-                  <div className="text-[#4F46E5] text-xs sm:text-sm font-semibold flex items-center gap-1.5 mt-0.5">
-                    <span>{personalInfo.title}</span>
+                  {/* Top Floating Badge: Available for Work */}
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-lg">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                      <span>Available for Hire</span>
+                    </div>
                   </div>
-                  <div className="text-[#64748B] text-xs mt-1 flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#4F46E5] flex-shrink-0" />
-                    <span className="truncate">Minya University • Egypt</span>
+
+                  {/* Top Right Floating Badge: CS Student */}
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/20 text-indigo-200 text-xs font-medium shadow-lg">
+                      <Award className="w-3.5 h-3.5 text-amber-400" />
+                      <span>Minya Univ</span>
+                    </div>
+                  </div>
+
+                  {/* Bottom Information Overlay on the Photo */}
+                  <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-20 text-white">
+                    <div className="text-xl sm:text-2xl font-bold tracking-tight text-white drop-shadow-md">
+                      {personalInfo.name}
+                    </div>
+                    <div className="text-indigo-200 text-xs sm:text-sm font-medium mt-0.5 flex items-center gap-1.5">
+                      <Code2 className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                      <span>{personalInfo.title}</span>
+                    </div>
                   </div>
                 </div>
+
+                {/* Floating Metric Cards Attached Below / Floating over Photo */}
+                <div className="grid grid-cols-3 gap-2 mt-3">
+                  <div className="bg-[#FAFAFC] p-2.5 sm:p-3 rounded-xl border border-slate-200/90 text-center hover:border-indigo-300 transition-colors">
+                    <div className="text-indigo-600 font-extrabold text-base sm:text-lg">6+</div>
+                    <div className="text-[#0F172A] text-[10px] sm:text-xs font-semibold leading-tight mt-0.5">Live Apps</div>
+                    <div className="text-[#64748B] text-[9px] sm:text-[10px] hidden sm:block">On Vercel</div>
+                  </div>
+
+                  <div className="bg-[#FAFAFC] p-2.5 sm:p-3 rounded-xl border border-slate-200/90 text-center hover:border-purple-300 transition-colors">
+                    <div className="text-purple-600 font-extrabold text-base sm:text-lg">100h</div>
+                    <div className="text-[#0F172A] text-[10px] sm:text-xs font-semibold leading-tight mt-0.5">Diploma</div>
+                    <div className="text-[#64748B] text-[9px] sm:text-[10px] hidden sm:block">Instant Dev</div>
+                  </div>
+
+                  <div className="bg-[#FAFAFC] p-2.5 sm:p-3 rounded-xl border border-slate-200/90 text-center hover:border-amber-300 transition-colors">
+                    <div className="text-amber-500 font-extrabold text-base sm:text-lg">100%</div>
+                    <div className="text-[#0F172A] text-[10px] sm:text-xs font-semibold leading-tight mt-0.5">Responsive</div>
+                    <div className="text-[#64748B] text-[9px] sm:text-[10px] hidden sm:block">React / TS</div>
+                  </div>
+                </div>
+
+                {/* Quick Social & Portfolio Connect Links */}
+                <div className="flex items-center justify-between gap-2 mt-3 pt-3 border-t border-slate-100">
+                  <a
+                    href={personalInfo.linkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 px-3 py-2 rounded-xl bg-slate-50 hover:bg-indigo-50 text-[#0F172A] hover:text-indigo-600 text-xs font-semibold border border-slate-200/80 flex items-center justify-center gap-1.5 transition-all shadow-2xs"
+                  >
+                    <Linkedin className="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" />
+                    <span>LinkedIn</span>
+                  </a>
+
+                  <a
+                    href={personalInfo.gitHub}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 px-3 py-2 rounded-xl bg-slate-50 hover:bg-purple-50 text-[#0F172A] hover:text-purple-600 text-xs font-semibold border border-slate-200/80 flex items-center justify-center gap-1.5 transition-all shadow-2xs"
+                  >
+                    <Github className="w-3.5 h-3.5 text-purple-600 flex-shrink-0" />
+                    <span>GitHub</span>
+                  </a>
+
+                  <a
+                    href="#certifications"
+                    className="flex-1 px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-semibold border border-indigo-200 flex items-center justify-center gap-1.5 transition-all"
+                  >
+                    <Award className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+                    <span>Diploma</span>
+                  </a>
+                </div>
+
               </div>
-
-              {/* Quick Stats Grid */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <div className="bg-[#FAFAFC] p-2.5 sm:p-4 rounded-xl border border-slate-200">
-                  <div className="text-[#4F46E5] font-extrabold text-lg sm:text-2xl">6+</div>
-                  <div className="text-[#0F172A] text-[11px] sm:text-xs font-medium mt-0.5 leading-tight">Deployed Web Apps</div>
-                  <div className="text-[#64748B] text-[10px] sm:text-[11px] mt-0.5 sm:mt-1">Live on Vercel</div>
-                </div>
-
-                <div className="bg-[#FAFAFC] p-2.5 sm:p-4 rounded-xl border border-slate-200">
-                  <div className="text-[#7C3AED] font-extrabold text-lg sm:text-2xl">100h</div>
-                  <div className="text-[#0F172A] text-[11px] sm:text-xs font-medium mt-0.5 leading-tight">Front-End Diploma</div>
-                  <div className="text-[#64748B] text-[10px] sm:text-[11px] mt-0.5 sm:mt-1">Instant Software</div>
-                </div>
-
-                <div className="bg-[#FAFAFC] p-2.5 sm:p-4 rounded-xl border border-slate-200">
-                  <div className="text-[#A855F7] font-extrabold text-lg sm:text-2xl">B2/C1</div>
-                  <div className="text-[#0F172A] text-[11px] sm:text-xs font-medium mt-0.5 leading-tight">English Proficiency</div>
-                  <div className="text-[#64748B] text-[10px] sm:text-[11px] mt-0.5 sm:mt-1">Fluent & Technical</div>
-                </div>
-
-                <div className="bg-[#FAFAFC] p-2.5 sm:p-4 rounded-xl border border-slate-200">
-                  <div className="text-[#F97316] font-extrabold text-lg sm:text-2xl">100%</div>
-                  <div className="text-[#0F172A] text-[11px] sm:text-xs font-medium mt-0.5 leading-tight">Responsive Design</div>
-                  <div className="text-[#64748B] text-[10px] sm:text-[11px] mt-0.5 sm:mt-1">Mobile & Desktop</div>
-                </div>
-              </div>
-
-              {/* Highlights Checklist */}
-              <div className="space-y-2 mb-5 sm:mb-6 text-[11px] sm:text-xs text-[#64748B]">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#4F46E5] flex-shrink-0" />
-                  <span>Front-End Diploma & 1-Month Training Certified</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#4F46E5] flex-shrink-0" />
-                  <span>React, TypeScript, Tailwind CSS, & RESTful APIs</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#4F46E5] flex-shrink-0" />
-                  <span>Interactive web apps in E-Commerce & Legal Tech</span>
-                </div>
-              </div>
-
-              {/* External Profile Links */}
-              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-3 sm:pt-4 border-t border-slate-100">
-                <a
-                  href={personalInfo.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 min-w-[80px] px-2 sm:px-3 py-2 rounded-lg bg-[#FAFAFC] hover:bg-slate-100 text-[#0F172A] text-[10px] sm:text-xs font-medium border border-slate-200 flex items-center justify-center gap-1 transition-colors"
-                >
-                  <Linkedin className="w-3.5 h-3.5 text-[#4F46E5] flex-shrink-0" />
-                  <span>LinkedIn</span>
-                  <ExternalLink className="w-3 h-3 text-[#64748B] flex-shrink-0" />
-                </a>
-
-                <a
-                  href={personalInfo.gitHub}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 min-w-[80px] px-2 sm:px-3 py-2 rounded-lg bg-[#FAFAFC] hover:bg-slate-100 text-[#0F172A] text-[10px] sm:text-xs font-medium border border-slate-200 flex items-center justify-center gap-1 transition-colors"
-                >
-                  <Github className="w-3.5 h-3.5 text-[#7C3AED] flex-shrink-0" />
-                  <span>GitHub</span>
-                  <ExternalLink className="w-3 h-3 text-[#64748B] flex-shrink-0" />
-                </a>
-
-                <a
-                  href="#certifications"
-                  className="flex-1 min-w-[80px] px-2 sm:px-3 py-2 rounded-lg bg-indigo-50 border border-indigo-200 text-[#4F46E5] text-[10px] sm:text-xs font-medium flex items-center justify-center gap-1 hover:bg-indigo-100 transition-colors"
-                >
-                  <Award className="w-3.5 h-3.5 text-[#F97316] flex-shrink-0" />
-                  <span>Certificates</span>
-                </a>
-              </div>
-
             </div>
           </div>
 

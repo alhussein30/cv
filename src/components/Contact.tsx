@@ -142,6 +142,37 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
+            {/* Profile Quick Badge */}
+            <div className="bg-white rounded-2xl p-5 border border-indigo-200 flex items-center gap-4 shadow-md">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-tr from-[#4F46E5] to-[#7C3AED] p-0.5 shadow flex-shrink-0">
+                {personalInfo.profileImage ? (
+                  <img
+                    src={personalInfo.profileImage}
+                    alt={personalInfo.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover rounded-[10px]"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[#0F172A] rounded-[10px] flex items-center justify-center text-white font-bold text-sm">
+                    AS
+                  </div>
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <h4 className="text-[#0F172A] font-bold text-sm truncate">{personalInfo.name}</h4>
+                <p className="text-[#4F46E5] text-xs font-medium truncate">{personalInfo.title}</p>
+                <a
+                  href={personalInfo.gitHub}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] text-[#7C3AED] hover:underline mt-1"
+                >
+                  <Github className="w-3 h-3 flex-shrink-0" />
+                  <span className="truncate">github.com/alhussein30</span>
+                </a>
+              </div>
+            </div>
+
             {/* Social Links Bar */}
             <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-md flex items-center justify-between">
               <a

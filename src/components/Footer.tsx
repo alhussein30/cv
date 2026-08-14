@@ -25,8 +25,13 @@ export const Footer: React.FC = () => {
           {/* Col 1: Bio & Monogram (5 cols) */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4F46E5] via-[#7C3AED] to-[#A855F7] flex items-center justify-center text-white font-bold text-lg shadow-md">
-                AS
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4F46E5] via-[#7C3AED] to-[#A855F7] p-0.5 shadow-md flex-shrink-0">
+                <img
+                  src={personalInfo.profileImage || "/huss.png"}
+                  alt={personalInfo.name}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover rounded-[10px]"
+                />
               </div>
               <div>
                 <span className="text-white font-bold text-base block leading-none">

@@ -58,12 +58,15 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo / Personal Monogram */}
+          {/* Logo / Personal Avatar */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#A855F7] p-0.5 shadow-md group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-[#0F172A] rounded-[10px] flex items-center justify-center text-white font-bold text-sm">
-                AS
-              </div>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4F46E5] via-[#7C3AED] to-[#A855F7] p-0.5 shadow-md group-hover:scale-105 transition-transform flex-shrink-0">
+              <img
+                src={personalInfo.profileImage || "/huss.png"}
+                alt={personalInfo.name}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover rounded-[10px]"
+              />
             </div>
             <div>
               <span className="text-[#0F172A] font-bold text-base sm:text-lg tracking-tight block leading-none group-hover:text-[#4F46E5] transition-colors">

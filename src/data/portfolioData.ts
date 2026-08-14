@@ -11,7 +11,8 @@ export const personalInfo: ContactInfo = {
   gitHub: "https://github.com/alhussein30",
   university: "Faculty of Computers and Information, Minya University",
   degree: "Computer Science & Software Engineering",
-  graduationYear: "Student / Graduate"
+  graduationYear: "Student / Graduate",
+  profileImage: "/huss.png"
 };
 
 export const certificationsData: Certification[] = [
